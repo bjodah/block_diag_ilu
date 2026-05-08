@@ -68,8 +68,6 @@ if _HAVE_CYTHON and os.path.exists(_src["pyx"]):
         os.unlink(_src["cpp"])  # ensure c++ source is re-generated.
 else:
     USE_CYTHON = False
-    if not os.path.exists(_src["cpp"]):
-        raise ValueError("Neither pyx nor cpp file found")
 
 ext_modules = []
 
@@ -86,6 +84,10 @@ if len(sys.argv) > 1 and '--help' not in sys.argv[1:] and sys.argv[1] not in (
     if USE_CYTHON:
         from Cython.Build import cythonize
         ext_modules = cythonize(ext_modules, include_path=[package_include])
+    else:
+        if not os.path.exists(_src["cpp"]):
+            raise ValueError("Neither pyx nor cpp file found")
+
     macros = [('BLOCK_DIAG_ILU_PY', None)]
     if env.get('BLOCK_DIAG_ILU_WITH_GETRF') == '1':
         macros.append(('BLOCK_DIAG_ILU_WITH_GETRF', None))

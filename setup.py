@@ -135,8 +135,8 @@ setup_kwargs = dict(
     license=license,
     packages=[pkg_name] + tests,
     include_package_data=True,
-    setup_requires=['numpy'] + (['cython'] if USE_CYTHON else []),
-    install_requires=['numpy'] + (['cython'] if USE_CYTHON else []),
+    setup_requires=['numpy', 'cython'],
+    install_requires=['numpy'],
     ext_modules=ext_modules,
 )
 

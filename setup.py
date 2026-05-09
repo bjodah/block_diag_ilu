@@ -59,10 +59,9 @@ else:  # set `__version__` from _release.py:
 package_include = os.path.join(pkg_name, 'include')
 basename = '_%s' % pkg_name
 _src = {ext: _path_under_setup(pkg_name, "%s.%s" % (basename, ext)) for ext in "cpp pyx".split()}
-if _HAVE_CYTHON and os.path.exists(_src["pyx"]):
+if os.path.exists(_src["pyx"]):
     # Possible that a new release of Python needs a re-rendered Cython source,
-    # or that we want to include possible bug-fix to Cython, disable by manually
-    # deleting .pyx file from source distribution.
+    # or that we want to include possible bug-fix to Cython.
     USE_CYTHON = True
     if os.path.exists(_src["cpp"]):
         os.unlink(_src["cpp"])  # ensure c++ source is re-generated.

@@ -10,3 +10,4 @@ include CHANGES.rst
 include LICENSE
 include README.rst
 
+include block_diag_ilu/_block_diag_ilu.pyx

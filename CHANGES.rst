@@ -1,3 +1,7 @@
+v0.5.4
+======
+Fix MANIFEST.in (.pyx file needs to be included)
+
 v0.5.3
 ======
 Use Cython from setup.py whenever there's a .pyx file available.

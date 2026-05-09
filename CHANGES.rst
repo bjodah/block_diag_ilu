@@ -1,3 +1,7 @@
+v0.5.3
+======
+Use Cython from setup.py whenever there's a .pyx file available.
+
 v0.5.2
 ======
 Re-render cython sources.

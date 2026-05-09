@@ -1,3 +1,7 @@
+v0.5.5
+======
+drop long_description
+
 v0.5.4
 ======
 Fix MANIFEST.in (.pyx file needs to be included)

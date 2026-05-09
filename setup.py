@@ -118,17 +118,17 @@ with io.open(_path_under_setup(pkg_name, '__init__.py'), 'rt', encoding='utf-8')
     short_description = f.read().split('"""')[1].split('\n')[1]
 if not 10 < len(short_description) < 255:
     warnings.warn("Short description from __init__.py proably not read correctly.")
-long_description = io.open(_path_under_setup('README.rst'),
-                           encoding='utf-8').read()
-if not len(long_description) > 100:
-    warnings.warn("Long description from README.rst probably not read correctly.")
+# long_description = io.open(_path_under_setup('README.rst'),
+#                            encoding='utf-8').read()
+# if not len(long_description) > 100:
+#     warnings.warn("Long description from README.rst probably not read correctly.")
 _author, _author_email = open(_path_under_setup('AUTHORS'), 'rt').readline().split('<')
 
 setup_kwargs = dict(
     name=pkg_name,
     version=__version__,
     description=short_description,
-    long_description=long_description,
+    # long_description=long_description,
     classifiers=classifiers,
     author=_author.strip(),
     author_email=_author_email.split('>')[0].strip(),
